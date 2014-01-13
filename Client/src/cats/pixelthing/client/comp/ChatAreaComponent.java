@@ -97,6 +97,7 @@ public class ChatAreaComponent extends JPanel implements KeyListener{
 
     public void pushMessage(final Message m){
         messageModel.addElement(m.msg());
+        SwingUtilities.invokeLater(() -> messageList.ensureIndexIsVisible(messageModel.getSize() - 1));
         messageList.repaint();
     }
 
